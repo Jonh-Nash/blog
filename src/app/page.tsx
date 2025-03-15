@@ -108,12 +108,33 @@ export default function Home() {
 
       {/* Essays */}
       <section>
-        <div className="flex items-center mb-6">
-          <h2 className="text-2xl font-bold text-white mr-4">Essays</h2>
-          <div className="flex-grow h-px bg-gray-800"></div>
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center">
+            <h2 className="text-2xl font-bold text-white mr-4">Essays</h2>
+            <div className="flex-grow h-px bg-gray-800 w-16"></div>
+          </div>
+          <Link
+            href="/essay"
+            className="text-indigo-400 hover:text-indigo-300 transition duration-150 text-sm flex items-center"
+          >
+            すべてのエッセイを見る
+            <svg
+              className="ml-1 h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {essayPosts.map((post) => (
+          {essayPosts.slice(0, 4).map((post) => (
             <Link
               key={post.slug}
               href={`/essay/${post.slug}`}
@@ -166,16 +187,60 @@ export default function Home() {
             </Link>
           ))}
         </div>
+        {essayPosts.length > 4 && (
+          <div className="mt-6 text-center">
+            <Link
+              href="/essay"
+              className="inline-flex items-center px-4 py-2 border border-indigo-500 text-sm font-medium rounded-md text-indigo-400 bg-gray-900 hover:bg-gray-800 transition duration-150"
+            >
+              エッセイをもっと見る
+              <svg
+                className="ml-2 h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </Link>
+          </div>
+        )}
       </section>
 
       {/* AI News */}
       <section>
-        <div className="flex items-center mb-6">
-          <h2 className="text-2xl font-bold text-white mr-4">AI News</h2>
-          <div className="flex-grow h-px bg-gray-800"></div>
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center">
+            <h2 className="text-2xl font-bold text-white mr-4">AI News</h2>
+            <div className="flex-grow h-px bg-gray-800 w-16"></div>
+          </div>
+          <Link
+            href="/ai-news"
+            className="text-indigo-400 hover:text-indigo-300 transition duration-150 text-sm flex items-center"
+          >
+            すべてのAIニュースを見る
+            <svg
+              className="ml-1 h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {aiNewsPosts.map((post) => (
+          {aiNewsPosts.slice(0, 4).map((post) => (
             <Link
               key={post.slug}
               href={`/ai-news/${post.slug}`}
@@ -228,6 +293,29 @@ export default function Home() {
             </Link>
           ))}
         </div>
+        {aiNewsPosts.length > 4 && (
+          <div className="mt-6 text-center">
+            <Link
+              href="/ai-news"
+              className="inline-flex items-center px-4 py-2 border border-indigo-500 text-sm font-medium rounded-md text-indigo-400 bg-gray-900 hover:bg-gray-800 transition duration-150"
+            >
+              AIニュースをもっと見る
+              <svg
+                className="ml-2 h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </Link>
+          </div>
+        )}
       </section>
     </div>
   );
