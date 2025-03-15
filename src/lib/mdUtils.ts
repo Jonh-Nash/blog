@@ -5,6 +5,15 @@ import matter from "gray-matter";
 export interface PostMeta {
   title: string;
   date: string;
+  profile?: {
+    image: string;
+    name: string;
+    website: string;
+    github: string;
+    linkedin: string;
+    twitter: string;
+  };
+  tags: string[];
 }
 
 export interface PostContent {
