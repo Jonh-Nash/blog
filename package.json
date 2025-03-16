@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "fetch:techcrunch": "npx ts-node scripts/fetchTechCrunch.ts"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
@@ -19,12 +20,17 @@
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@tailwindcss/typography": "^0.5.16",
-    "@types/node": "^20",
+    "@types/node": "^20.17.24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.7",
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
+    "openai": "^4.87.3",
+    "rss-parser": "^3.13.0",
     "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }
