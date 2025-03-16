@@ -34,50 +34,46 @@ export default function ResumePage() {
         </ol>
       </nav>
 
-      <div className="bg-gray-900 border border-gray-800 rounded-lg shadow-lg overflow-hidden mb-8">
-        <div className="p-6">
-          <header className="mb-6">
-            <div className="flex items-center mb-4">
-              <svg
-                className="h-8 w-8 text-indigo-400 mr-3"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                />
-              </svg>
-              <h1 className="text-3xl font-bold text-white">
-                {resume.meta.title || "Resume"}
-              </h1>
-            </div>
-
-            <div className="flex flex-wrap gap-2 mb-4">
-              {resume.meta.tags &&
-                resume.meta.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-900 text-indigo-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
-            </div>
-
-            <hr className="border-gray-800 my-6" />
-          </header>
-
-          <article className="prose prose-invert prose-indigo max-w-none prose-headings:text-white prose-a:text-indigo-400 prose-code:bg-gray-800 prose-code:text-indigo-300 prose-strong:text-indigo-300">
-            <div dangerouslySetInnerHTML={{ __html: marked(resume.content) }} />
-          </article>
+      <header className="mb-6">
+        <div className="flex items-center mb-4">
+          <svg
+            className="h-8 w-8 text-indigo-400 mr-3"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+            />
+          </svg>
+          <h1 className="text-3xl font-bold text-white">
+            {resume.meta.title || "Resume"}
+          </h1>
         </div>
-      </div>
 
-      <div className="text-center">
+        <div className="flex flex-wrap gap-2 mb-4">
+          {resume.meta.tags &&
+            resume.meta.tags.map((tag, index) => (
+              <span
+                key={index}
+                className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-900 text-indigo-300"
+              >
+                {tag}
+              </span>
+            ))}
+        </div>
+
+        <hr className="border-gray-800 my-6" />
+      </header>
+
+      <article className="prose prose-invert prose-indigo max-w-none prose-headings:text-white prose-a:text-indigo-400 prose-code:bg-gray-800 prose-code:text-indigo-300 prose-strong:text-indigo-300">
+        <div dangerouslySetInnerHTML={{ __html: marked(resume.content) }} />
+      </article>
+
+      <div className="text-center mt-12 pt-6 border-t border-gray-800">
         <Link
           href="/"
           className="inline-flex items-center px-4 py-2 border border-indigo-500 text-sm font-medium rounded-md text-indigo-400 bg-gray-900 hover:bg-gray-800 transition duration-150"
