@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "fetch:techcrunch": "npx ts-node scripts/fetchTechCrunch.ts"
+    "fetch:techcrunch": "npx ts-node scripts/fetchTechCrunch.ts",
+    "fetch:unread": "npx ts-node scripts/fetchUnread.ts"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
