@@ -7,7 +7,6 @@ import {
 
 export default function Home() {
   const resume = getSingleMarkdown("resume.md");
-  const skillmap = getSingleMarkdown("skillmap.md");
   const essayPosts = getAllMarkdownInDir("essay");
   const aiNewsPosts = getAllMarkdownInDir("ai-news");
 
@@ -45,48 +44,6 @@ export default function Home() {
         <p className="text-gray-400 mb-4">{getSummary(resume.content, 200)}</p>
         <Link
           href="/resume"
-          className="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition duration-150"
-        >
-          詳しく見る
-          <svg
-            className="ml-1 h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M14 5l7 7m0 0l-7 7m7-7H3"
-            />
-          </svg>
-        </Link>
-      </section>
-
-      {/* スキルマップ - カードなし */}
-      <section className="border-b border-gray-800 pb-8">
-        <div className="flex items-center mb-4">
-          <svg
-            className="h-6 w-6 text-indigo-400 mr-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
-            />
-          </svg>
-          <h2 className="text-2xl font-bold text-white">スキルマップ</h2>
-        </div>
-        <p className="text-gray-400 mb-4">
-          {getSummary(skillmap.content, 200)}
-        </p>
-        <Link
-          href="/skillmap"
           className="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition duration-150"
         >
           詳しく見る

@@ -37,12 +37,6 @@ export default function RootLayout({
                       Resume
                     </Link>
                     <Link
-                      href="/skillmap"
-                      className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition duration-150"
-                    >
-                      Skillmap
-                    </Link>
-                    <Link
                       href="/essay"
                       className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition duration-150"
                     >
@@ -95,12 +89,6 @@ export default function RootLayout({
                   className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800"
                 >
                   Resume
-                </Link>
-                <Link
-                  href="/skillmap"
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800"
-                >
-                  Skillmap
                 </Link>
                 <Link
                   href="/essay"
