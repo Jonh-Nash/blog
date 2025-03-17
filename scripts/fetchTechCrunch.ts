@@ -10,7 +10,6 @@ dotenv.config();
 // --------------------------------------------------
 // OpenAI API の初期化
 // --------------------------------------------------
-console.log(process.env.OPENAI_API_KEY);
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -29,12 +28,33 @@ async function main() {
     const feedUrl = "https://techcrunch.com/feed/";
     const feed = await rssParser.parseURL(feedUrl);
 
+    // フィードの最終更新日時を取得
+    const lastBuildDate = feed.lastBuildDate;
+    const lastBuildDatePath = path.join(__dirname, "lastBuildDate.txt");
+
+    // 前回の最終更新日時を取得
+    let previousLastBuildDate = "";
+    if (fs.existsSync(lastBuildDatePath)) {
+      previousLastBuildDate = fs
+        .readFileSync(lastBuildDatePath, "utf-8")
+        .trim();
+    }
+
+    // 前回の最終更新日時と同じなら実行しない
+    if (lastBuildDate === previousLastBuildDate) {
+      console.log("フィードは更新されていません。");
+      return;
+    }
+
+    // 最終更新日時を保存
+    fs.writeFileSync(lastBuildDatePath, lastBuildDate, { encoding: "utf-8" });
+
     // 2. 取得した記事をループ処理
     for (const item of feed.items) {
       // item.guid または link, title 等で一意のファイル判定用スラグを生成
       const articleSlug = createSlug(item.title || "no-title");
 
-      // すでに内容が存在するかチェック(./content/essay/ 配下)
+      // すでに内容が存在するかチェック(./content/essay/techcrunch 配下)
       const filePath = path.join(
         "content",
         "essay",
