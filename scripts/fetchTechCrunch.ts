@@ -26,7 +26,7 @@ const rssParser = new RSSParser();
 async function main() {
   try {
     // 1. TechCrunch のAI関連フィードを取得
-    const feedUrl = "https://techcrunch.com/tag/artificial-intelligence/feed/";
+    const feedUrl = "https://techcrunch.com/feed/";
     const feed = await rssParser.parseURL(feedUrl);
 
     // 2. 取得した記事をループ処理
@@ -35,7 +35,12 @@ async function main() {
       const articleSlug = createSlug(item.title || "no-title");
 
       // すでに内容が存在するかチェック(./content/essay/ 配下)
-      const filePath = path.join("content", "essay", `${articleSlug}.md`);
+      const filePath = path.join(
+        "content",
+        "essay",
+        "techcrunch",
+        `${articleSlug}.md`
+      );
       if (fs.existsSync(filePath)) {
         console.log(`既に存在する記事です: ${filePath}`);
         continue;
