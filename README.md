@@ -41,13 +41,8 @@ App Router は元々動的ルーティングであるが、`generateStaticParams
 - 読んでいない記事一覧から記事を取得して、メタ情報を Markdown ファイルとして追加してくれるスクリプト
   - `npm run fetch:unread`
   - 追加: Web 検索で記事本体を取得して要約する
-- essay の内容を取得してタイトルを付けるスクリプト
-  - `npm run update:essay-title`
-  - 「感想」や「メモ」以降の内容があれば、OpenAI に投げて要約を取得してくる
 - Essay から一週間の記事を取得して、AI News として Markdown ファイルとして追加してくれるスクリプト
   - `npm run make:ai-news`
-- 空の記事を作成するスクリプト
-  - `npm run make:empty-article`
 
 ## アイデア
 
