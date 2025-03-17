@@ -61,8 +61,26 @@ async function main() {
         "techcrunch",
         `${articleSlug}.md`
       );
+      const trashedFilePath = path.join(
+        "content",
+        "essay",
+        "techcrunch",
+        "trash",
+        `${articleSlug}.md`
+      );
+      const createdFilePath = path.join(
+        "content",
+        "essay",
+        `${articleSlug}.md`
+      );
       if (fs.existsSync(filePath)) {
         console.log(`既に存在する記事です: ${filePath}`);
+        continue;
+      } else if (
+        fs.existsSync(trashedFilePath) ||
+        fs.existsSync(createdFilePath)
+      ) {
+        console.log(`この記事はすでに読みました: ${createdFilePath}`);
         continue;
       }
 
