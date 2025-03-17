@@ -137,12 +137,15 @@ function createMarkdown(
     : `"${tags}"`;
 
   return `---
-title: "${title}"
+title: "感想メモ: ${title}"
 created_date: "${created_date}"
 updated_date: "${updated_date}"
 tags: [${tagList}]
 link: "${link}"
 ---
+## 元記事リンク
+[こちらをクリック](${link})
+
 ${content}
 `;
 }
