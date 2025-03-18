@@ -19,7 +19,7 @@ async function main() {
     for (const url of urls) {
       // URLのハッシュ値をファイル名に使用
       const hash = nodeCrypto.createHash("md5").update(url).digest("hex");
-      const filePath = path.join("content", "essay", `${hash}.md`);
+      const filePath = path.join("content", "essay", "unread", `${hash}.md`);
 
       if (fs.existsSync(filePath)) {
         console.log(`既に存在する記事です: ${filePath}`);

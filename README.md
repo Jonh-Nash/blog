@@ -43,6 +43,7 @@ App Router は元々動的ルーティングであるが、`generateStaticParams
   - 追加: Web 検索で記事本体を取得して要約する
 - Essay から一週間の記事を取得して、AI News として Markdown ファイルとして追加してくれるスクリプト
   - `npm run make:ai-news`
+  - AI だけでなくソフトウェアエンジニアリングに関する記事も取得する
 
 ## アイデア
 
