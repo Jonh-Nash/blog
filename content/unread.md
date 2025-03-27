@@ -1,0 +1,2 @@
+- https://www.nvidia.com/ja-jp/gtc/keynote/?regcode=ref-inor-984298&ncid=ref-inor-984298
+- https://github.com/microsoft/playwright-mcp

@@ -68,6 +68,12 @@ async function main() {
         "trash",
         `${articleSlug}.md`
       );
+      const unreadFilePath = path.join(
+        "content",
+        "essay",
+        "unread",
+        `${articleSlug}.md`
+      );
       const createdFilePath = path.join(
         "content",
         "essay",
@@ -78,7 +84,8 @@ async function main() {
         continue;
       } else if (
         fs.existsSync(trashedFilePath) ||
-        fs.existsSync(createdFilePath)
+        fs.existsSync(createdFilePath) ||
+        fs.existsSync(unreadFilePath)
       ) {
         console.log(`この記事はすでに読みました: ${createdFilePath}`);
         continue;
