@@ -1,5 +1,35 @@
-過去2日間のLLMに関するニュースを調査してまとめてください。
-特にXでの以下の投稿を中心に調査してください。
+以下のアカウントが投稿したLLM関連の最新24時間の情報を調査してまとめてください。
 
-- Google, Meta, Qwen, Mistral, DeepSeekなどのLLMに関する公式投稿
-- 私justy979096のFollowingユーザの投稿
+@AIatMeta
+@googleaidevs
+@silviasetitech
+@ClementDelangue
+@HuggingFace
+@Alibaba_Qwen
+@Google
+@deepseek_ai
+@gclue_akira
+@rinna_research
+@sbintuitions
+@ManusAI_HQ
+@schroneko
+@iScienceLuvr
+@SophontAI
+@MedARC_AI
+@npaka123
+@bilzrd
+@hpp_ricecake
+@hayato_tkgs
+@CurveWeb
+@WMjjRpISUEt2QZZ
+@ce__lery
+@p1atdev_art
+@asap2650
+@odashi_t
+@Aratako_LM
+@okoge_kaz
+@iwiwi
+@SakanaAILabs
+@CsWeddy
+@umiyuki_ai
+@huggingface
