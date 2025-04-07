@@ -1,0 +1,1 @@
+TechCrunchとBloombergの過去2日の記事を調べて、LLMに関する記事があれば調査して報告してください。

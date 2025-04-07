@@ -1,0 +1,5 @@
+過去2日間のLLMに関するニュースを調査してまとめてください。
+特にXでの以下の投稿を中心に調査してください。
+
+- Google, Meta, Qwen, Mistral, DeepSeekなどのLLMに関する公式投稿
+- 私justy979096のFollowingユーザの投稿
