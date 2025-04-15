@@ -1,1 +1,1 @@
-TechCrunchとBloombergの過去2日の最新記事を調べて、LLMに関する記事があれば調査して報告してください。
+TechCrunchとBloombergの過去2日の最新記事を調べて、AIに関する記事を調査して報告してください。
