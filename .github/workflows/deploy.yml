@@ -36,6 +36,7 @@ jobs:
       - name: Build
         run: pnpm run build
         env:
+          NODE_ENV: production
           PUBLIC_HATENA_FEED: ${{ secrets.PUBLIC_HATENA_FEED }}
 
       - name: Deploy to GitHub Pages
