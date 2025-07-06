@@ -19,10 +19,6 @@ const { Content } = await render(post);
 ---
 <BaseLayout title={post.data.title}>
   <article>
-    <h1>{post.data.title}</h1>
-    <time dateTime={post.data.pubDate.toISOString()}>
-      {post.data.pubDate.toLocaleDateString('ja-JP')}
-    </time>
     <Content />
   </article>
 </BaseLayout>
