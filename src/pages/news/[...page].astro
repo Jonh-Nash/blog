@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { normalizeNews } from '../../lib/normalizeNews';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const rawPosts = await getCollection('news');
+  const posts = rawPosts.map(normalizeNews).sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+  
+  return paginate(posts, {
+    pageSize: 20,
+  });
+};
+
+const { page } = Astro.props;
+---
+<BaseLayout title={`ニュース記事 - ページ ${page.currentPage}`}>
+  <h1>📚 ニュース記事一覧</h1>
+  <p>LLM関連のニュースを日々確認しています。</p>
+  
+  <ul>
+    {page.data.map((post) => (
+      <li><a href={`/${post.id}/`}>{post.data.pubDate.toLocaleDateString('ja-JP')}</a></li>
+    ))}
+  </ul>
+
+  <nav aria-label="ページネーション">
+    <div style="display: flex; gap: 1rem; align-items: center; margin-top: 2rem;">
+      {page.url.prev && (
+        <a href={page.url.prev}>← 前のページ</a>
+      )}
+      
+      <span>
+        ページ {page.currentPage} / {page.lastPage}
+        （全 {page.total} 件）
+      </span>
+      
+      {page.url.next && (
+        <a href={page.url.next}>次のページ →</a>
+      )}
+    </div>
+  </nav>
+</BaseLayout> 
