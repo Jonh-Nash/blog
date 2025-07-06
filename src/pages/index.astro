@@ -11,6 +11,7 @@ const hatenaLinks = await getHatenaLinks(5);
 ---
 <BaseLayout title="Home">
   <h1>📚 Latest News</h1>
+  <p>LLM関連のニュースを日々確認しています。</p>
   <ul>
     {posts.slice(0, 10).map((p) => (
       <li><a href={`/${p.id}/`}>{p.data.pubDate.toLocaleDateString('ja-JP')}</a></li>
