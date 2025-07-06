@@ -33,7 +33,7 @@ function extractDescription(content: string): string {
     if (
       line.startsWith("#") ||
       line.startsWith("###") ||
-      line.startsWith("- [")
+      line.startsWith("- ")
     ) {
       continue;
     }
