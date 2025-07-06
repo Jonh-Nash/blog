@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { normalizeNews } from '../lib/normalizeNews';
+import { getHatenaLinks } from '../lib/hatena';
+
+const rawPosts = await getCollection('news');
+const posts = rawPosts.map(normalizeNews).sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const hatenaLinks = await getHatenaLinks(5);
+---
+<BaseLayout title="Home">
+  <h1>📚 Latest News</h1>
+  <ul>
+    {posts.slice(0, 10).map((p) => (
+      <li><a href={`/${p.slug}/`}>{p.data.title}</a> ({p.data.pubDate.toLocaleDateString('ja-JP')})</li>
+    ))}
+  </ul>
+
+  <h1>🔗 Hatena Blog</h1>
+  <ul>
+    {hatenaLinks.map((h) => (
+      <li><a href={h.link} target="_blank" rel="noopener">{h.title}</a></li>
+    ))}
+  </ul>
+
+  <h1>👤 About</h1>
+  <p>ここに自己紹介や SNS リンクなどを記載。</p>
+</BaseLayout>

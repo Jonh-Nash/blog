@@ -1,0 +1,24 @@
+{
+  "name": "my-blog",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "astro": "^5.11.0"
+  },
+  "devDependencies": {
+    "@astrojs/rss": "^4.0.12",
+    "@types/node": "^20.14.10",
+    "@typescript-eslint/eslint-plugin": "^8.20.0",
+    "@typescript-eslint/parser": "^8.20.0",
+    "eslint": "^9.17.0",
+    "prettier": "^3.3.3",
+    "rss-parser": "^3.13.0",
+    "typescript": "^5.7.3"
+  }
+}

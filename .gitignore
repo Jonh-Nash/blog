@@ -41,5 +41,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# astro
+.astro/
+/dist/
+
 # contents
 /content/essay/techcrunch

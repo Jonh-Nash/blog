@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEntryBySlug, getCollection } from 'astro:content';
+import { normalizeNews } from '../lib/normalizeNews';
+
+export async function getStaticPaths() {
+  const newsEntries = await getCollection('news');
+  return newsEntries.map(entry => ({
+    params: { slug: entry.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const entry = await getEntryBySlug('news', slug!);
+if (!entry) throw new Error('Not found');
+
+const post = normalizeNews(entry);
+const { Content } = await post.render();
+---
+<BaseLayout title={post.data.title}>
+  <article>
+    <h1>{post.data.title}</h1>
+    <time dateTime={post.data.pubDate.toISOString()}>
+      {post.data.pubDate.toLocaleDateString('ja-JP')}
+    </time>
+    <Content />
+  </article>
+</BaseLayout>
