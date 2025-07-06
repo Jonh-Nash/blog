@@ -1,8 +1,8 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://TODO_USERNAME.github.io/TODO_REPO",
-  base: "/TODO_REPO/",
+  site: "https://TODO_USERNAME.github.io",
+  base: "/",
   content: {
     dir: "content",
   },
