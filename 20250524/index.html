@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="ja"> <head><meta charset="utf-8"><title>20250524</title><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="alternate" type="application/rss+xml" href="/rss.xml"></head> <body> <header><a href="/">Home</a></header> <main>  <article> <h1 id="20250524">2025/05/24</h1>
+<h2 id="最近考えていること">最近考えていること</h2>
+<p>最近は出張とかあって毎日ニュースを追加できなかった。けど DeepResearch させて見てる。
+最近の流れとしては、「LLM + 実行環境」があるかなと思う。LLM にどれだけ実行環境を与えて、自由に自律的に動いてもらうか。</p>
+<p>OpenAI Codex とか Claude Code とか、さらには Cline とか Cursor とかも結局はそうなんだよね。
+そうなってきた時に AI にとってどういう環境が良いかっていうのは、ソフトウェアエンジニアリングの文脈だと今までの DevOps とか CI/CD とか DDD とか自動テストとか培ってきたものが生きてきそうっていう感覚かな。</p>
+<p>今考えているのはそんな感じ。</p>
+<h2 id="openai-upgrades-the-ai-model-powering-its-operator-agent">OpenAI upgrades the AI model powering its Operator agent</h2>
+<h3 id="リンク">リンク</h3>
+<ul>
+<li><a href="https://techcrunch.com/2025/05/23/openai-upgrades-the-ai-model-powering-its-operator-agent/">https://techcrunch.com/2025/05/23/openai-upgrades-the-ai-model-powering-its-operator-agent/</a></li>
+</ul>
+<h3 id="英語要約">英語要約</h3>
+<p>OpenAI has replaced the GPT-4o-based model in its autonomous web agent <strong>Operator</strong> with a version built on its new <strong>o3 reasoning model</strong>. The company says the upgrade delivers markedly better performance on math and logic tasks and has been fine-tuned with additional “computer-use” safety data. The move highlights an escalating race—against Google’s Gemini “computer-use” agent and Anthropic’s Claude tools—to build trustworthy AI agents that can execute complex sequences of actions with minimal human oversight.</p>
+<h3 id="日本語翻訳">日本語翻訳</h3>
+<p>OpenAI は、自律型ウェブエージェント <strong>Operator</strong> に搭載していた GPT-4o ベースのモデルを、新しい <strong>o3 reasoning model</strong> に置き換えた。数学や論理推論タスクで大幅に性能が向上し、PC 操作に特化した安全データで追加チューニングが施されているという。Google の Gemini や Anthropic の Claude などとの間で、複雑な作業を自律的にこなす <strong>AI エージェント</strong> をめぐる競争が激化していることを示す発表だ。</p>
+<h3 id="感想">感想</h3>
+<p>恥ずかしながら Operator を使ったことなかったので使ってみた。Pro 版だとすぐに使えた。
+OpenAI が持ってるクラウド化どっかに実行環境があって、そこでブラウザ検索とかが行われるイメージ。眺めてるだけで面白い。
+正直、検索させる系のタスクは DeepResearch とかで良い気がしたけど、途中で「Take Control」でこちらが操作を介入できるのが面白いところ。</p>
+<p>ログインとかが必要な食べログでの予約は、ログイン直前まで行ってくれた。あとは自分でログインして予約するだけって感じ。
+試しに要件を定めて JAL の予約を指示してみた。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>明日のJALを予約してください。要件は以下です。</span></span>
+<span class="line"><span>- 羽田発</span></span>
+<span class="line"><span>- 鹿児島着</span></span>
+<span class="line"><span>- JALカードで予約</span></span>
+<span class="line"><span>- 15時以降の出発</span></span></code></pre>
+<p>途中で片道選択できてなくて失敗してたんだけど、失敗を認識して修正もしてた。</p>
+<p>技術的には VLM とか使って認識してるっぽい。多分専用の強化学習とかしていそう。
+これが o3 ベースで賢くなったなら大抵の人間がブラウザ上でやれることはできそうな気がするな。意外と便利かも。</p>
+<h2 id="jony-ive-to-lead-openais-design-work-following-65b-acquisition-of-his-company">Jony Ive to lead OpenAI’s design work following $6.5B acquisition of his company</h2>
+<h3 id="リンク-1">リンク</h3>
+<ul>
+<li><a href="https://techcrunch.com/2025/05/21/jony-ive-to-lead-openais-design-work-following-6-5b-acquisition-of-his-company/">https://techcrunch.com/2025/05/21/jony-ive-to-lead-openais-design-work-following-6-5b-acquisition-of-his-company/</a></li>
+</ul>
+<h3 id="英語要約-1">英語要約</h3>
+<p>OpenAI is buying hardware startup <strong>io</strong>—co-founded by iconic Apple designer <strong>Jony Ive</strong>—in an all-equity deal valued at <strong>$6.5 billion</strong>. Ive’s firm LoveFrom will head design across OpenAI, and a 55-person hardware team joins the company to build “AI-first” consumer devices aimed at moving users “beyond screens.” Analysts see the deal as a direct bid to challenge Apple’s dominance in personal-device design.</p>
+<h3 id="日本語翻訳-1">日本語翻訳</h3>
+<p>OpenAI は、Apple の伝説的デザイナー <strong>Jony Ive</strong> が共同創業したハードウェア新興企業 <strong>io</strong> を 65 億ドル相当の株式交換で買収する。Ive 率いる LoveFrom が OpenAI 全体のデザインを統括し、約 55 名のハードウェアチームが合流して「ポスト・スクリーン」の AI デバイスを開発する。業界では、Apple のデバイス支配に真っ向から挑む一手と受け止められている。</p>
+<h3 id="感想-1">感想</h3>
+<p>ようやく業界全体としてハードウェアにも焦点が当たり始めたなと。Google I/O での発表も然り。
+自分は、2 年前くらいから注目していたエッジデバイスでの機械学習推論みたいなことに注力していく。</p>
+<h2 id="anthropic-ceo-claims-ai-models-hallucinate-less-than-humans">Anthropic CEO claims AI models hallucinate less than humans</h2>
+<h3 id="リンク-2">リンク</h3>
+<ul>
+<li><a href="https://techcrunch.com/2025/05/22/anthropic-ceo-claims-ai-models-hallucinate-less-than-humans/">https://techcrunch.com/2025/05/22/anthropic-ceo-claims-ai-models-hallucinate-less-than-humans/</a></li>
+</ul>
+<h3 id="英語要約-2">英語要約</h3>
+<p>At Anthropic’s developer event, CEO <strong>Dario Amodei</strong> argued that AI models now hallucinate <strong>less frequently than humans</strong>, though in more unexpected ways, and insisted hallucination is not a blocker to AGI. He cited progress from tool use and web-search integration, while acknowledging that high-confidence errors remain a perception problem.</p>
+<h3 id="日本語翻訳-2">日本語翻訳</h3>
+<p>Anthropic の開発者イベントで CEO の <strong>Dario Amodei</strong> は「AI モデルの幻覚率は人間より低いが、より意外な形で現れる」と主張し、幻覚が AGI の障害にはならないと語った。ツール呼び出しやウェブ検索連携などで幻覚は減少傾向にある一方、確信度の高い誤答が持つ“印象的な失敗”が課題として残るという。</p>
+<h3 id="感想-2">感想</h3>
+<p>自分も人間の方が AI よりハルシネーション起こしてると思うな。
+今の SOTA とされるモデルに対しての心配はハルシネーションというより、データとコンテキストを与えれないかになってる。
+人間に同じ情報与えたとして、多分人間の方が非論理的な回答とか結論に導かれるんじゃないかな。</p>
+<h2 id="ai-in-search-going-beyond-information-to-intelligence">AI in Search: Going beyond information to intelligence</h2>
+<h3 id="リンク-3">リンク</h3>
+<ul>
+<li><a href="https://blog.google/products/search/google-search-ai-mode-update/">https://blog.google/products/search/google-search-ai-mode-update/</a></li>
+</ul>
+<h3 id="英語要約-3">英語要約</h3>
+<p>Google is rolling out its conversational <strong>AI Mode</strong> in Search to all U.S. users after Labs testing, with plans for a global launch. AI Mode delivers multimodal, follow-up-friendly answers directly in Search, building on the “AI Overviews” already used by 1.5 billion users per month.</p>
+<h3 id="日本語翻訳-3">日本語翻訳</h3>
+<p>Google は実験版 Labs で提供していた検索の <strong>AI Mode</strong> を米国全ユーザーに解放し、順次グローバル展開する。AI Mode は画像・テキストを横断した会話型回答を検索結果に直接表示し、月間 15 億ユーザーが利用する「AI Overview」をさらに拡張する。</p>
+<h3 id="感想-3">感想</h3>
+<p>自分はほとんどの思い検索は DeepResearch 使うからなぁ。軽い検索では使うかもしれない。
+もちろん Google が”検索”に向き合って時間は他の企業より膨大で、そこら辺の精度は高いかもしれない。気が向いたら使ってみたい。</p>
+<p>そういえば自分は検索が結構得意な方な気がしてて、幼少期から他の人が見つけれなかったものとか見つけれた。
+そこら辺が自然言語で誰でも検索できるようになっていくってことかもしれない。</p>
+<h2 id="gemini-gets-more-personal-proactive-and-powerful">Gemini gets more personal, proactive and powerful</h2>
+<h3 id="リンク-4">リンク</h3>
+<ul>
+<li><a href="https://blog.google/products/gemini/gemini-app-updates-io-2025/">https://blog.google/products/gemini/gemini-app-updates-io-2025/</a></li>
+</ul>
+<h3 id="英語要約-4">英語要約</h3>
+<p>Google’s <strong>Gemini</strong> assistant gains <strong>Gemini Live</strong>, enabling real-time spoken conversations augmented by the phone camera or screen, plus deeper integration with Google apps. New paid tiers (“AI Pro” and “AI Ultra,” up to $250/month) target power users who need higher limits and early access to cutting-edge models.</p>
+<h3 id="日本語翻訳-4">日本語翻訳</h3>
+<p>Google のアシスタント <strong>Gemini</strong> に <strong>Gemini Live</strong> が追加され、カメラ映像や画面共有を見ながらリアルタイムで対話できるようになった。さらに Google アプリ群との連携が強化され、上限を引き上げた有料プラン「AI Pro」「AI Ultra」（月額最大 250 ドル）も発表された。</p>
+<h3 id="感想-4">感想</h3>
+<p>DeepResearch に自分のファイルつけれるのは便利そうだな。
+自分は OpenAI, Claude, Gemini の 3 つを使ってるんだけど、それを瞬時に切り替える仕組みみたいなのを導入したい。専用の割り当てマウスとか買おうかな。</p> </article>  </main> <footer>© 2025 justy's blog</footer> </body></html>

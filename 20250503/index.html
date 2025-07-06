@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="ja"> <head><meta charset="utf-8"><title>20250503</title><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="alternate" type="application/rss+xml" href="/rss.xml"></head> <body> <header><a href="/">Home</a></header> <main>  <article> <h1 id="20250503">2025/05/03</h1>
+<h2 id="open-source-ai-hiring-bots-favor-men-leave-women-hanging-by-the-phone">Open source AI hiring bots favor men, leave women hanging by the phone</h2>
+<h3 id="リンク">リンク</h3>
+<ul>
+<li><a href="https://www.theregister.com/2025/05/02/open_source_ai_models_gender_bias/">https://www.theregister.com/2025/05/02/open_source_ai_models_gender_bias/</a></li>
+</ul>
+<h3 id="英語要約">英語要約</h3>
+<p>A study of six mid-sized open-source LLMs (e.g., Llama-3-8B-Instruct, Qwen 2.5-7B-Instruct) on 332 k real job ads found systematic gender bias: most models recommended male candidates for higher-wage jobs, while Meta’s Llama-3.1 showed the best balance (41 % female callbacks). Prompting tricks (e.g., asking the model to “cosplay Lenin”) reduced bias, highlighting fragile guardrails. Authors urge disclosure when AI tools are used in recruitment. :contentReference[oaicite:2]{index=2}</p>
+<h3 id="日本語翻訳">日本語翻訳</h3>
+<p>33 万件超の求人広告を用いた研究で、6 種のオープンソース LLM は高賃金ポストで男性候補を優先する傾向を示しました。最もバランスが良かったのは Meta の Llama-3.1（女性推薦率 41 %）でした。プロンプトで「レーニンになりきれ」と指示するとバイアスが減少するなど、ガードレールの脆弱さも露呈。研究者は採用プロセスで AI を使う際の開示義務を提言しています。 :contentReference[oaicite:3]{index=3}</p>
+<h3 id="感想">感想</h3>
+<p>中身読む感じ 10B 以下の OSS モデルで試しているね。性能がそもそも足りていない説もある気がした。
+もし将来的にサービス化するとしたらバイアス検査をサービスに含んだり、LLM の”バイアス係数”みたいなものが SLA 項目になったりして。
+こういうある種の公平性とかの FineTune が必要なものは、SLA になったりオプションになったりしていくんだろうな。</p>
+<h2 id="microsoft-prepares-azure-ai-foundry-for-integration-with-grok-ai">Microsoft prepares Azure AI Foundry for integration with Grok AI</h2>
+<h3 id="リンク-1">リンク</h3>
+<ul>
+<li><a href="https://www.techzine.eu/news/applications/131074/microsoft-prepares-azure-ai-foundry-for-integration-with-grok-ai/">https://www.techzine.eu/news/applications/131074/microsoft-prepares-azure-ai-foundry-for-integration-with-grok-ai/</a></li>
+</ul>
+<h3 id="英語要約-1">英語要約</h3>
+<p>Reports say Microsoft is in advanced talks with Elon Musk’s xAI to host the <strong>Grok</strong> LLM on a new “Azure AI Foundry” platform. Grok would join DeepSeek R1 and OpenAI models in Azure’s catalog; Microsoft provides inference infrastructure but not training, as xAI plans in-house training. Tensions with OpenAI persist, so multi-model hosting aligns with Microsoft’s strategy to be a neutral AI cloud broker. :contentReference[oaicite:4]{index=4}</p>
+<h3 id="日本語翻訳-1">日本語翻訳</h3>
+<p>Microsoft が新プラットフォーム「Azure AI Foundry」で xAI の <strong>Grok</strong> モデルをホスティングする交渉を進めています。推論基盤のみ提供し、学習は xAI が独自に実施。DeepSeek R1 など他社モデルも選択肢に加わり、OpenAI との関係が緊張する中で “マルチモデル中立クラウド” の戦略を強化する動きです。 :contentReference[oaicite:5]{index=5}</p>
+<h3 id="感想-1">感想</h3>
+<p>ユーザにとってはありがたい。今は、Vertex AI か Bedrock か Azure かみたいにモデルによってクラウドを選ぶ必要があるからね。
+推論フェーズで GPU 貸しで稼ぐとなったら、モデルの取り揃えはビジネス的に必要なんだろうな。</p>
+<h2 id="ai-scientist-team-joins-the-search-for-extraterrestrial-life">AI scientist ‘team’ joins the search for extraterrestrial life</h2>
+<h3 id="リンク-2">リンク</h3>
+<ul>
+<li><a href="https://www.nature.com/articles/d41586-025-01364-w">https://www.nature.com/articles/d41586-025-01364-w</a></li>
+</ul>
+<h3 id="英語要約-2">英語要約</h3>
+<p>Researchers built <strong>AstroAgents</strong>, eight specialized AI agents powered by Claude 3.5 and Gemini 2.0 Flash, that autonomously read literature, generate hypotheses and design experiments for astrobiology. Presented at ICLR 2025, the agents will analyze Mars rock samples to detect organic molecules, exemplifying “agentic AI” that plans, critiques and iterates without human micro-supervision. :contentReference[oaicite:6]{index=6}</p>
+<h3 id="日本語翻訳-2">日本語翻訳</h3>
+<p>研究者らは <strong>AstroAgents</strong> という 8 体の AI エージェント群を開発しました。各エージェントが論文読解・データ解析・仮説立案・批評を担い、相互にタスクを割り振って自律研究を行います。ICLR 2025 で発表され、火星から回収予定の岩石試料の有機分子検出に用いられる計画です。“エージェンティック AI” の科学応用例として注目されています。 :contentReference[oaicite:7]{index=7}</p>
+<h3 id="感想-2">感想</h3>
+<p>これの面白いのが LLM の性能自体が上がると仮説の精度自体も上がりそうっていうところ。実際はわかんないけど。
+まあでも、AI が提案する 100 個の仮説のうち真に重要な 1 個を見抜く判断みたいなのは依然人間に残りそう。</p>
+<p>こういう Agent は推論時間を伸ばせばすごい発見をしてくれるんだろうか？
+となれば AI を時間貸しする「発見 as a Service」みたいなビジネスモデルができたりして w</p>
+<h2 id="google-is-going-to-let-kids-use-its-gemini-ai">Google is going to let kids use its Gemini AI</h2>
+<h3 id="リンク-3">リンク</h3>
+<ul>
+<li><a href="https://www.theverge.com/news/660678/google-gemini-ai-children-under-13-family-link-chatbot-access">https://www.theverge.com/news/660678/google-gemini-ai-children-under-13-family-link-chatbot-access</a></li>
+</ul>
+<h3 id="英語要約-3">英語要約</h3>
+<p>Google will soon allow children under 13 to access Gemini chatbot apps on supervised Android devices via Family Link. Kids’ data won’t train models, and parents can disable access. Google warns Gemini may err or show inappropriate content and urges parental guidance. The move follows broader concerns over AI safety for minors. :contentReference[oaicite:10]{index=10}</p>
+<h3 id="日本語翻訳-3">日本語翻訳</h3>
+<p>Google は 13 歳未満の子どもが保護者管理下の Android 端末で Gemini チャットボットを利用できるようにします。子どものデータはモデル学習に使われず、保護者は Family Link で機能を無効化可能。Gemini は誤情報や不適切コンテンツを提示する恐れがあるため、親に注意喚起メールが送られます。未成年向け AI 安全性を巡る議論を受けた施策です。 :contentReference[oaicite:11]{index=11}</p>
+<h3 id="感想-3">感想</h3>
+<p>AI と教育はどうなのかわからない。</p>
+<p>AI が即座にそれらしい答えを言ってくれるから、自ら考えるたいな力が育たない気はしている。
+これは自分が LLM 使ってソフトウェアエンジニアリングしている時も意識していて、深堀するようにして”はらおち”するようにしている。
+んだけど、AI は一生そばにいそうだから、そういう”自ら考える力”とかはもういらないのかもなぁ。</p> </article>  </main> <footer>© 2025 justy's blog</footer> </body></html>

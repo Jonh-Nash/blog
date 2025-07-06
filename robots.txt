@@ -1,0 +1,43 @@
+# robots.txt
+
+# Allow all crawlers to access the site
+User-agent: *
+Allow: /
+
+# Crawl delay for general crawlers
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://Jonh-Nash.github.io/sitemap.xml
+
+# RSS feed
+Sitemap: https://Jonh-Nash.github.io/rss.xml
+
+# LLM specifications
+# See llms.txt for AI crawler specific guidelines
+# https://Jonh-Nash.github.io/llms.txt
+
+# Specific AI crawler settings
+User-agent: GPTBot
+Crawl-delay: 2
+
+User-agent: ChatGPT-User
+Crawl-delay: 2
+
+User-agent: Claude-Web
+Crawl-delay: 2
+
+User-agent: Bard
+Crawl-delay: 2
+
+User-agent: PerplexityBot
+Crawl-delay: 2
+
+User-agent: YouBot
+Crawl-delay: 2
+
+User-agent: AdsBot-Google
+Disallow: /
+
+User-agent: AdsBot-Google-Mobile
+Disallow: / 

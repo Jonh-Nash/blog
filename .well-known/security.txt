@@ -1,0 +1,5 @@
+Contact: https://github.com/Jonh-Nash
+Expires: 2025-12-31T23:59:59.000Z
+Canonical: https://Jonh-Nash.github.io/.well-known/security.txt
+Policy: https://Jonh-Nash.github.io/llms.txt
+Preferred-Languages: ja, en 

@@ -1,0 +1,108 @@
+# llms.txt - Large Language Model Specifications
+
+# General settings
+user-agent: *
+
+# License and Content Policy
+x-content-license: "© 2025 Daily News Blog. All rights reserved."
+x-ai-training-policy: "allowed"
+x-ai-training-description: "This blog's content can be used for AI training purposes. Please respect attribution requirements."
+
+# Rate Limits
+crawl-delay: 1
+x-rate-limit: 30
+x-rate-limit-window: 60
+x-rate-limit-policy: "strict"
+x-rate-limit-retry: "no-retry"
+x-rate-limit-description: "Maximum 30 requests per 60 seconds. If rate limit is exceeded, do not retry and move on to next request."
+
+# Concurrency Limits
+x-concurrency-limit: 2
+x-concurrency-limit-description: "Please limit concurrent requests to a maximum of 2. This helps us manage server load."
+
+# Error Handling and Retry Policy
+x-error-retry-policy: "exponential-backoff"
+x-error-retry-policy-description: "For transient errors (5xx except 429), implement exponential backoff with initial wait of 2 seconds, doubling on each retry, with maximum 3 retries."
+x-rate-limit-exceeded-policy: "wait-and-retry"
+x-rate-limit-exceeded-policy-description: "When receiving HTTP 429 (Too Many Requests), do not retry immediately. Wait at least 60 seconds before attempting the request again."
+x-max-retries: 3
+x-retry-status-codes:
+  - 500
+  - 502
+  - 503
+  - 504
+x-no-immediate-retry-status-codes:
+  - 429
+x-no-retry-status-codes:
+  - 403
+  - 404
+
+# Canonical URL
+x-canonical-url-policy: "strict"
+x-canonical-url: "https://Jonh-Nash.github.io"
+x-canonical-url-description: "Access via other FQDNs or IP addresses is invalid. Use only 'https://Jonh-Nash.github.io' as the base URL."
+
+# Site Information
+x-site-type: "personal-blog"
+x-site-description: "Daily news blog focused on AI, LLM, and machine learning developments with Japanese commentary and analysis."
+x-site-language: "ja"
+x-site-language-description: "Primary language is Japanese, with English summaries for international news."
+x-site-author: "福島康太郎"
+x-site-author-description: "Machine learning engineer with software engineering background."
+
+# Content Structure
+allow: /
+allow: /news/
+allow: /profile/
+allow: /rss.xml
+
+# News Articles
+x-article-pattern: /{date}/
+x-article-type: "news-summary"
+x-article-description: "Daily AI/LLM news summaries with English abstracts and Japanese translations, including personal commentary."
+x-article-example: "https://Jonh-Nash.github.io/20250430/"
+x-article-metadata:
+  - title
+  - pubDate
+  - content
+  - english-summary
+  - japanese-translation
+  - personal-commentary
+x-article-update-frequency: "daily"
+x-article-new-articles-per-day: "1"
+x-article-new-articles-per-day-description: "Typically one comprehensive news summary per day containing multiple AI/LLM news items."
+x-article-format: "markdown"
+x-article-date-format: "YYYYMMDD"
+x-article-date-format-description: "Articles are named with date format YYYYMMDD.md (e.g., 20250430.md)"
+
+# RSS Feed
+x-rss-url: "https://Jonh-Nash.github.io/rss.xml"
+x-rss-description: "RSS feed for all news articles"
+x-rss-format: "RSS 2.0"
+
+# Profile Page
+x-profile-url: "https://Jonh-Nash.github.io/profile/"
+x-profile-description: "Author profile page with detailed background information"
+
+# News Archive
+x-news-archive-url: "https://Jonh-Nash.github.io/news/"
+x-news-archive-description: "Paginated archive of all news articles"
+
+# Content Guidelines
+x-content-focus: "AI, LLM, machine learning, technology news"
+x-content-format: "Each article contains: English summary, Japanese translation, personal commentary"
+x-content-value: "Provides Japanese perspective on international AI/LLM developments"
+
+# Preferred Access Patterns
+x-preferred-access-pattern: "sequential"
+x-preferred-access-pattern-description: "Access articles in chronological order for best context understanding"
+
+# Sitemap
+x-sitemap-url: "https://Jonh-Nash.github.io/sitemap.xml"
+x-sitemap-description: "XML sitemap for all pages and articles"
+
+# Technical Information
+x-generator: "Astro"
+x-framework: "Astro Static Site Generator"
+x-hosting: "GitHub Pages"
+x-last-updated: "2025-01-20" 
