@@ -14,11 +14,11 @@ const hatenaLinks = await getHatenaLinks(5);
   <p>LLM関連のニュースを日々確認しています。</p>
   <ul>
     {posts.slice(0, 10).map((p) => (
-      <li><a href={`/${p.id}/`}>{p.data.pubDate.toLocaleDateString('ja-JP')}</a></li>
+      <li><a href={`${import.meta.env.BASE_URL}${p.id}/`}>{p.data.pubDate.toLocaleDateString('ja-JP')}</a></li>
     ))}
   </ul>
   
-  <p><a href="/news/">過去の記事をすべて見る →</a></p>
+  <p><a href={`${import.meta.env.BASE_URL}news/`}>過去の記事をすべて見る →</a></p>
 
   <h1>🔗 Hatena Blog</h1>
   <ul>
@@ -29,5 +29,5 @@ const hatenaLinks = await getHatenaLinks(5);
 
   <h1>👤 About</h1>
   <p>機械学習エンジニアの福島康太郎です。元ソフトウェアエンジニアとして培った知見を活かし、AI/機械学習でビジネス価値を創出することに取り組んでいます。</p>
-  <p><a href="/profile">詳細なプロフィールを見る →</a></p>
+  <p><a href={`${import.meta.env.BASE_URL}profile`}>詳細なプロフィールを見る →</a></p>
 </BaseLayout>
