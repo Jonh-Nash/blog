@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Profile - Kotaro Fukushima">
+  <div class="profile-container">
+    <h1>👤 Profile</h1>
+    
+    <div class="profile-header">
+      <h2>Kotaro Fukushima</h2>
+      <p>福島 康太郎</p>
+    </div>
+
+    <div class="profile-links">
+      <h3>🔗 Links</h3>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/kotaro-fukushima-5b39a321a/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/Jonh-Nash" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://justylifememo.hatenablog.com/" target="_blank" rel="noopener">Blog</a></li>
+      </ul>
+    </div>
+
+    <div class="profile-section">
+      <h3>📋 Professional Summary</h3>
+      <p>
+        A Machine Learning Engineer leveraging former software engineering expertise to support 
+        "business value-driven decision making" through AI/ML. I have built experience in both 
+        product development and machine learning, including large-scale BFF development at Yahoo Search 
+        and research investment projects at an AI consulting company.
+      </p>
+    </div>
+
+    <div class="profile-section">
+      <h3>🎯 Personal Statement</h3>
+      <p>
+        I aim to understand technology fundamentally and connect it to business decision-making. 
+        To achieve this deep understanding, I continuously learn in unknown domains on my own. 
+        For more details, please check out the 
+        <a href="https://www.rist.co.jp/blog/202504237814/" target="_blank" rel="noopener">Rist Official Blog Interview Article (2025-04-23)</a>.
+      </p>
+    </div>
+
+    <div class="profile-section">
+      <h3>🔍 Interests</h3>
+      <ul>
+        <li>
+          <strong>Kaggle Competitions:</strong> Participating in competitions to sharpen technical skills. 
+          Currently ranked as Kaggle Expert.
+        </li>
+        <li>
+          <strong>Building from Scratch:</strong> Creating "artifacts" of technologies I work with, 
+          such as compilers and operating systems. Recently working on building my own LLM.
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <style>
+    .profile-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .profile-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #eee;
+    }
+
+    .profile-header h2 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    .profile-header p {
+      margin: 0.5rem 0 0 0;
+      font-size: 1.2rem;
+      color: #666;
+    }
+
+    .profile-links {
+      margin-bottom: 2rem;
+    }
+
+    .profile-links ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .profile-links li {
+      background: #f8f9fa;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #e9ecef;
+    }
+
+    .profile-links a {
+      text-decoration: none;
+      color: #0066cc;
+      font-weight: 500;
+    }
+
+    .profile-links a:hover {
+      text-decoration: underline;
+    }
+
+    .profile-section {
+      margin-bottom: 2rem;
+    }
+
+    .profile-section h3 {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .profile-section p {
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .profile-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .profile-section li {
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: #f8f9fa;
+      border-radius: 0.5rem;
+      border-left: 4px solid #0066cc;
+    }
+
+    .profile-section li strong {
+      color: #333;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</BaseLayout> 
