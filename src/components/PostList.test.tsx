@@ -16,12 +16,14 @@ describe("PostList", () => {
         date: "2026-05-01",
         description: "First description",
         slug: "first-post",
+        tags: ["idea"],
       },
       {
         title: "Second post",
         date: "2026-05-02",
         description: "Second description",
         slug: "second-post",
+        tags: ["idea"],
       },
     ];
 
@@ -54,6 +56,7 @@ describe("PostList", () => {
         date: "2026-05-03",
         description: "Base path description",
         slug: "base-path-post",
+        tags: ["idea"],
       },
     ];
 
@@ -62,5 +65,23 @@ describe("PostList", () => {
     const link = screen.getByRole("link", { name: "Base path post" });
     expect(link.getAttribute("href")).toBe("/posts/base-path-post");
     expect(link.getAttribute("href")).not.toContain("/blog/");
+  });
+
+  it("given post summaries with tags when rendering the list then displays the idea tag", () => {
+    const posts: PostSummary[] = [
+      {
+        title: "Tagged post",
+        date: "2026-05-04",
+        description: "Tagged description",
+        slug: "tagged-post",
+        tags: ["idea"],
+      },
+    ];
+
+    render(<PostList posts={posts} />);
+
+    const article = screen.getByRole("article");
+    expect(within(article).getByText("idea")).toBeTruthy();
+    expect(within(article).queryByText("thought")).toBeNull();
   });
 });

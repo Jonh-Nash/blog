@@ -15,6 +15,11 @@ export function PostList({ posts }: PostListProps) {
             <Link href={`/posts/${post.slug}`}>{post.title}</Link>
           </h2>
           <time dateTime={post.date}>{post.date}</time>
+          <div className="post-tags">
+            {post.tags.map((tag) => (
+              <span key={tag}>{tag}</span>
+            ))}
+          </div>
           <p>{post.description}</p>
         </article>
       ))}

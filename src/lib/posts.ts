@@ -10,6 +10,7 @@ export type PostSummary = {
   date: string;
   description: string;
   slug: string;
+  tags: string[];
 };
 
 export type Post = PostSummary & {
@@ -25,11 +26,12 @@ const requiredFields = ["title", "date", "description", "slug"] as const;
 
 export function getAllPosts(): PostSummary[] {
   return readPosts()
-    .map(({ title, date, description, slug }) => ({
+    .map(({ title, date, description, slug, tags }) => ({
       title,
       date,
       description,
       slug,
+      tags,
     }))
     .sort((first, second) => first.date.localeCompare(second.date));
 }
@@ -54,6 +56,7 @@ export function getPostBySlug(slug: string): Post {
     date: post.date,
     description: post.description,
     slug: post.slug,
+    tags: post.tags,
     contentHtml,
   };
 }
@@ -97,6 +100,7 @@ function validateFrontmatter(data: Record<string, unknown>, fileName: string): P
     date: formatDateField(data.date),
     description: data.description as string,
     slug: data.slug as string,
+    tags: validateTagsField(data.tags, fileName),
   };
 }
 
@@ -115,6 +119,20 @@ function formatDateField(value: unknown): string {
 
   if (typeof value !== "string") {
     throw new Error("Required frontmatter field \"date\" must be a string");
+  }
+
+  return value;
+}
+
+function validateTagsField(value: unknown, fileName: string): string[] {
+  if (!Array.isArray(value) || value.length === 0) {
+    throw new Error(`Missing required frontmatter field "tags" in ${fileName}`);
+  }
+
+  if (!value.every((tag) => typeof tag === "string" && tag.trim() !== "")) {
+    throw new Error(
+      `Required frontmatter field "tags" must be a non-empty string array in ${fileName}`,
+    );
   }
 
   return value;
