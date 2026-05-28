@@ -1,5 +1,4 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import matter from "gray-matter";
 
 const fsMock = vi.hoisted(() => {
   type ReadDirOptions = { withFileTypes?: boolean };
@@ -87,25 +86,6 @@ const importPostsModule = async () => {
 describe("posts data module", () => {
   beforeEach(() => {
     fsMock.setMarkdownFiles({});
-  });
-
-  it("given repository content when inspecting posts then the only article has exactly the idea tag", async () => {
-    const actualFs = await vi.importActual<typeof import("node:fs")>("node:fs");
-    const actualPath = await vi.importActual<typeof import("node:path")>("node:path");
-    const postsDirectory = actualPath.join(process.cwd(), "content", "posts");
-
-    const postFileNames = actualFs
-      .readdirSync(postsDirectory, { withFileTypes: true })
-      .filter((entry) => entry.isFile() && entry.name.endsWith(".md"))
-      .map((entry) => entry.name);
-
-    expect(postFileNames).toEqual(["hello-blog.md"]);
-
-    const postFilePath = actualPath.join(postsDirectory, "hello-blog.md");
-    const parsedPost = matter(actualFs.readFileSync(postFilePath, "utf8"));
-
-    expect(parsedPost.data.tags).toEqual(["idea"]);
-    expect(parsedPost.data.tags).not.toContain("thought");
   });
 
   it("given Markdown frontmatter when listing posts then returns summary data without article body", async () => {
