@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 
+import { siteMetadata } from "../lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "A personal blog powered by Markdown.",
+  title: siteMetadata.title,
+  description: siteMetadata.description,
 };
 
 type RootLayoutProps = {
@@ -13,7 +14,7 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="ja">
+    <html lang={siteMetadata.language}>
       <body>{children}</body>
     </html>
   );
