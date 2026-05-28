@@ -1,8 +1,46 @@
-import { cleanup, render, screen, within } from "@testing-library/react";
-import { afterEach, describe, expect, it } from "vitest";
+import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import type { MouseEvent, ReactNode } from "react";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { PostList } from "./PostList";
 import type { PostSummary } from "../lib/posts";
+
+vi.mock("next/link", () => ({
+  default({
+    children,
+    href,
+    ...props
+  }: {
+    children: ReactNode;
+    href: string;
+    [key: string]: unknown;
+  }) {
+    const navigate = (event: MouseEvent<HTMLAnchorElement>) => {
+      if (event.defaultPrevented) {
+        return;
+      }
+
+      if (event.button !== 0 || event.metaKey || event.altKey || event.ctrlKey || event.shiftKey) {
+        event.preventDefault();
+        return;
+      }
+
+      event.preventDefault();
+      const targetHref = href.startsWith("/?") ? `${window.location.pathname}${href.slice(1)}` : href;
+      window.history.pushState({}, "", targetHref);
+    };
+
+    return (
+      <a href={href} onClick={navigate} {...props}>
+        {children}
+      </a>
+    );
+  },
+}));
+
+beforeEach(() => {
+  window.history.replaceState({}, "", "/blog/");
+});
 
 afterEach(() => {
   cleanup();
@@ -83,5 +121,117 @@ describe("PostList", () => {
     const article = screen.getByRole("article");
     expect(within(article).getByText("idea")).toBeTruthy();
     expect(within(article).queryByText("thought")).toBeNull();
+  });
+
+  it("given post summaries with tags when rendering the list then exposes each tag as a filter link", () => {
+    const posts: PostSummary[] = [
+      {
+        title: "Tagged post",
+        date: "2026-05-04",
+        description: "Tagged description",
+        slug: "tagged-post",
+        tags: ["idea"],
+      },
+    ];
+
+    render(<PostList posts={posts} />);
+
+    const article = screen.getByRole("article");
+    const tagLink = within(article).getByRole("link", { name: "idea" });
+    expect(tagLink.getAttribute("href")).toBe("/?tag=idea");
+    expect(tagLink.getAttribute("href")).not.toContain("/blog/");
+  });
+
+  it("given post summaries with tags when clicking a tag then updates the URL query", () => {
+    const posts: PostSummary[] = [
+      {
+        title: "Idea post",
+        date: "2026-05-04",
+        description: "Idea description",
+        slug: "idea-post",
+        tags: ["idea"],
+      },
+      {
+        title: "Memo post",
+        date: "2026-05-05",
+        description: "Memo description",
+        slug: "memo-post",
+        tags: ["memo"],
+      },
+    ];
+
+    render(<PostList posts={posts} />);
+
+    fireEvent.click(screen.getByRole("link", { name: "idea" }));
+
+    expect(window.location.pathname).toBe("/blog/");
+    expect(window.location.search).toBe("?tag=idea");
+    expect(screen.getAllByRole("article")).toHaveLength(2);
+  });
+
+  it("given a tag that requires URL encoding when rendering the list then encodes the filter link query", () => {
+    const posts: PostSummary[] = [
+      {
+        title: "Encoded tag post",
+        date: "2026-05-05",
+        description: "Encoded tag description",
+        slug: "encoded-tag-post",
+        tags: ["work notes"],
+      },
+    ];
+
+    render(<PostList posts={posts} />);
+
+    const article = screen.getByRole("article");
+    const tagLink = within(article).getByRole("link", { name: "work notes" });
+    expect(tagLink.getAttribute("href")).toBe("/?tag=work%20notes");
+  });
+
+  it("given a tag that requires URL encoding when clicking the tag then updates the URL query", () => {
+    const posts: PostSummary[] = [
+      {
+        title: "Encoded tag post",
+        date: "2026-05-05",
+        description: "Encoded tag description",
+        slug: "encoded-tag-post",
+        tags: ["work notes"],
+      },
+    ];
+
+    render(<PostList posts={posts} />);
+
+    fireEvent.click(screen.getByRole("link", { name: "work notes" }));
+
+    expect(window.location.pathname).toBe("/blog/");
+    expect(window.location.search).toBe("?tag=work%20notes");
+  });
+
+  it("given a modified tag click when rendering the list then leaves the current URL unchanged", () => {
+    const posts: PostSummary[] = [
+      {
+        title: "Tagged post",
+        date: "2026-05-04",
+        description: "Tagged description",
+        slug: "tagged-post",
+        tags: ["idea"],
+      },
+    ];
+
+    render(<PostList posts={posts} />);
+
+    fireEvent.click(screen.getByRole("link", { name: "idea" }), { metaKey: true });
+
+    expect(window.location.pathname).toBe("/blog/");
+    expect(window.location.search).toBe("");
+    expect(screen.queryByText("Filtered by tag: idea")).toBeNull();
+  });
+
+  it("given no post summaries when rendering the list then displays the empty state", () => {
+    const posts: PostSummary[] = [];
+
+    render(<PostList posts={posts} />);
+
+    expect(screen.getByText("No posts found.")).toBeTruthy();
+    expect(screen.queryByRole("article")).toBeNull();
   });
 });

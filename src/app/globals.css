@@ -77,6 +77,40 @@ time {
   margin-bottom: 0;
 }
 
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.post-tag {
+  border: 1px solid #d6d3ca;
+  border-radius: 4px;
+  padding: 2px 8px;
+  color: #1f5c6d;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.post-tag:hover,
+.post-tag:focus {
+  border-color: #1f5c6d;
+  text-decoration: underline;
+}
+
+.filter-status,
+.empty-state {
+  border-top: 1px solid #d6d3ca;
+  margin: 0;
+  padding-top: 24px;
+  color: #667085;
+}
+
+.filter-status {
+  margin-bottom: 24px;
+}
+
 .post-detail header {
   margin: 24px 0 40px;
 }
