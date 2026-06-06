@@ -88,7 +88,7 @@ describe("posts data module", () => {
     fsMock.setMarkdownFiles({});
   });
 
-  it("given Markdown frontmatter when listing posts then returns summary data without article body", async () => {
+  it("given Markdown frontmatter when listing posts then returns newest summaries first without article body", async () => {
     fsMock.setMarkdownFiles({
       "first.md": completePost({
         title: "First post",
@@ -113,17 +113,17 @@ describe("posts data module", () => {
 
     expect(posts).toEqual([
       {
-        title: "First post",
-        date: "2026-05-01",
-        description: "First description",
-        slug: "first-post",
-        tags: ["idea"],
-      },
-      {
         title: "Second post",
         date: "2026-05-02",
         description: "Second description",
         slug: "second-post",
+        tags: ["idea"],
+      },
+      {
+        title: "First post",
+        date: "2026-05-01",
+        description: "First description",
+        slug: "first-post",
         tags: ["idea"],
       },
     ]);

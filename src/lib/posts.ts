@@ -33,7 +33,7 @@ export function getAllPosts(): PostSummary[] {
       slug,
       tags,
     }))
-    .sort((first, second) => first.date.localeCompare(second.date));
+    .sort((first, second) => second.date.localeCompare(first.date));
 }
 
 export function getPostBySlug(slug: string): Post {
