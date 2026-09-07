@@ -39,6 +39,19 @@ export default async function PostPage({ params }: PostPageProps) {
           <time dateTime={post.date}>{post.date}</time>
           <p>{post.description}</p>
         </header>
+        {post.source ? (
+          <aside className="post-source" aria-label="この記事の参照元">
+            <p className="eyebrow">Source</p>
+            <a href={post.source.url}>{post.source.title}</a>
+            {post.source.author ? <span>{post.source.author}</span> : null}
+            {post.source.publishedDate ? (
+              <span>公開: {post.source.publishedDate}</span>
+            ) : null}
+            {post.source.accessedDate ? (
+              <span>閲覧: {post.source.accessedDate}</span>
+            ) : null}
+          </aside>
+        ) : null}
         <div
           className="post-content"
           dangerouslySetInnerHTML={{ __html: post.contentHtml }}

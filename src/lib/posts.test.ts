@@ -331,6 +331,102 @@ Body
     });
   });
 
+  it("given source frontmatter when fetching a reading note then returns its citation metadata", async () => {
+    fsMock.setMarkdownFiles({
+      "reading-note.md": `---
+title: An article response
+date: 2026-09-07
+description: What stayed with me
+slug: article-response
+tags:
+  - reading-note
+source:
+  title: The original article
+  url: https://example.com/articles/original
+  author: Example Author
+  publishedDate: 2026-09-01
+  accessedDate: 2026-09-07
+---
+
+> A short quotation.
+
+My response.
+`,
+    });
+    const { getPostBySlug } = await importPostsModule();
+
+    const post = getPostBySlug("article-response");
+
+    expect(post.source).toEqual({
+      title: "The original article",
+      url: "https://example.com/articles/original",
+      author: "Example Author",
+      publishedDate: "2026-09-01",
+      accessedDate: "2026-09-07",
+    });
+    expect(post.contentHtml).toContain("<blockquote>");
+    expect(post.contentHtml).toContain("A short quotation.");
+  });
+
+  it("given source frontmatter with only required fields when fetching then accepts it", async () => {
+    fsMock.setMarkdownFiles({
+      "minimal-source.md": `---
+title: Minimal source
+date: 2026-09-07
+description: Minimal citation metadata
+slug: minimal-source
+tags:
+  - reading-note
+source:
+  title: Original
+  url: http://example.com/original
+---
+
+Response.
+`,
+    });
+    const { getPostBySlug } = await importPostsModule();
+
+    const post = getPostBySlug("minimal-source");
+
+    expect(post.source).toEqual({
+      title: "Original",
+      url: "http://example.com/original",
+    });
+  });
+
+  it.each([
+    ["a non-object source", "source: original article", /source.*object/i],
+    [
+      "a source without a title",
+      "source:\n  url: https://example.com/original",
+      /source field.*title/i,
+    ],
+    [
+      "a source with an unsafe URL",
+      "source:\n  title: Original\n  url: javascript:alert(1)",
+      /source url.*http/i,
+    ],
+  ])("given %s when listing posts then fails fast", async (_caseName, source, error) => {
+    fsMock.setMarkdownFiles({
+      "invalid-source.md": `---
+title: Invalid source
+date: 2026-09-07
+description: Invalid citation metadata
+slug: invalid-source
+tags:
+  - reading-note
+${source}
+---
+
+Response.
+`,
+    });
+    const { getAllPosts } = await importPostsModule();
+
+    expect(() => getAllPosts()).toThrow(error);
+  });
+
   it("given missing tags frontmatter when listing posts then fails fast", async () => {
     fsMock.setMarkdownFiles({
       "missing-tags.md": `---

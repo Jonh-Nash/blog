@@ -13,11 +13,21 @@ export type PostSummary = {
   tags: string[];
 };
 
+export type PostSource = {
+  title: string;
+  url: string;
+  author?: string;
+  publishedDate?: string;
+  accessedDate?: string;
+};
+
 export type Post = PostSummary & {
+  source?: PostSource;
   contentHtml: string;
 };
 
 type ParsedPost = PostSummary & {
+  source?: PostSource;
   markdown: string;
 };
 
@@ -57,6 +67,7 @@ export function getPostBySlug(slug: string): Post {
     description: post.description,
     slug: post.slug,
     tags: post.tags,
+    source: post.source,
     contentHtml,
   };
 }
@@ -88,7 +99,10 @@ function readPostFile(fileName: string): ParsedPost {
   };
 }
 
-function validateFrontmatter(data: Record<string, unknown>, fileName: string): PostSummary {
+function validateFrontmatter(
+  data: Record<string, unknown>,
+  fileName: string,
+): PostSummary & { source?: PostSource } {
   for (const field of requiredFields) {
     if (!hasRequiredField(data[field], field)) {
       throw new Error(`Missing required frontmatter field "${field}" in ${fileName}`);
@@ -101,7 +115,99 @@ function validateFrontmatter(data: Record<string, unknown>, fileName: string): P
     description: data.description as string,
     slug: data.slug as string,
     tags: validateTagsField(data.tags, fileName),
+    ...validateSourceField(data.source, fileName),
   };
+}
+
+function validateSourceField(
+  value: unknown,
+  fileName: string,
+): { source?: PostSource } {
+  if (value === undefined) {
+    return {};
+  }
+
+  if (!isRecord(value)) {
+    throw new Error(`Optional frontmatter field "source" must be an object in ${fileName}`);
+  }
+
+  const title = validateRequiredSourceText(value.title, "title", fileName);
+  const url = validateRequiredSourceText(value.url, "url", fileName);
+
+  if (!isHttpUrl(url)) {
+    throw new Error(`Source URL must use http or https in ${fileName}`);
+  }
+
+  return {
+    source: {
+      title,
+      url,
+      ...optionalSourceText(value.author, "author", fileName),
+      ...optionalSourceDate(value.publishedDate, "publishedDate", fileName),
+      ...optionalSourceDate(value.accessedDate, "accessedDate", fileName),
+    },
+  };
+}
+
+function validateRequiredSourceText(
+  value: unknown,
+  field: "title" | "url",
+  fileName: string,
+): string {
+  if (typeof value !== "string" || value.trim() === "") {
+    throw new Error(`Source field "${field}" must be a non-empty string in ${fileName}`);
+  }
+
+  return value;
+}
+
+function optionalSourceText(
+  value: unknown,
+  field: "author",
+  fileName: string,
+): Partial<PostSource> {
+  if (value === undefined) {
+    return {};
+  }
+
+  if (typeof value !== "string" || value.trim() === "") {
+    throw new Error(`Source field "${field}" must be a non-empty string in ${fileName}`);
+  }
+
+  return { [field]: value };
+}
+
+function optionalSourceDate(
+  value: unknown,
+  field: "publishedDate" | "accessedDate",
+  fileName: string,
+): Partial<PostSource> {
+  if (value === undefined) {
+    return {};
+  }
+
+  if (value instanceof Date) {
+    return { [field]: value.toISOString().slice(0, 10) };
+  }
+
+  if (typeof value !== "string" || value.trim() === "") {
+    throw new Error(`Source field "${field}" must be a date string in ${fileName}`);
+  }
+
+  return { [field]: value };
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function isHttpUrl(value: string): boolean {
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
 }
 
 function hasRequiredField(value: unknown, field: (typeof requiredFields)[number]): boolean {

@@ -78,3 +78,25 @@ tags:
 ```
 
 `slug` は記事詳細ページの URL に使われます。必須 frontmatter（`title`, `date`, `description`, `slug`, `tags`）が欠けている場合や `slug` が重複している場合、記事読み取り処理はエラーを投げます。
+
+## 読んだ記事についてメモする
+
+`content/templates/reading-note.md` を `content/posts/` にコピーして使います。おすすめの書き方は次の順序です。
+
+1. `ひとことで` に、記事の要約ではなく自分に残ったことを書く
+2. 残したい原文を Markdown の引用記法（`>`）で短く引用する
+3. 各引用のすぐ下に、自分の解釈・経験とのつながり・反論を書く
+4. まだ答えが出ていないことは `残った問い` に逃がす
+
+引用文は必要な範囲に絞り、引用と自分の文章を明確に分けます。引用箇所を直接示せる URL がある場合は、テンプレートの `引用箇所` リンクも残してください。
+
+読書メモでは、任意の `source` frontmatter を使えます。`title` と `url` は `source` を使う場合の必須項目で、`author`、`publishedDate`、`accessedDate` は省略可能です。元記事の情報は記事詳細ページの冒頭に表示されます。
+
+```yaml
+source:
+  title: 元記事のタイトル
+  url: https://example.com/article
+  author: 著者名
+  publishedDate: 2026-09-01
+  accessedDate: 2026-09-07
+```

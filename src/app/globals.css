@@ -125,6 +125,31 @@ time {
   padding-top: 24px;
 }
 
+.post-source {
+  margin: -16px 0 40px;
+  border: 1px solid #d6d3ca;
+  border-radius: 6px;
+  padding: 16px 20px;
+  background: #efede6;
+}
+
+.post-source .eyebrow {
+  margin-bottom: 6px;
+}
+
+.post-source > a {
+  display: block;
+  font-weight: 700;
+}
+
+.post-source > span {
+  display: inline-block;
+  margin-top: 8px;
+  margin-right: 16px;
+  color: #667085;
+  font-size: 0.9rem;
+}
+
 .post-content h2,
 .post-content h3 {
   margin-top: 32px;
@@ -134,4 +159,19 @@ time {
   background: #ebe8df;
   border-radius: 4px;
   padding: 0.1em 0.25em;
+}
+
+.post-content blockquote {
+  margin: 24px 0;
+  border-left: 3px solid #8aa6a5;
+  padding: 4px 0 4px 20px;
+  color: #46535b;
+}
+
+.post-content blockquote > :first-child {
+  margin-top: 0;
+}
+
+.post-content blockquote > :last-child {
+  margin-bottom: 0;
 }
