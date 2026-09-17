@@ -31,7 +31,6 @@ function buildRssItem(post: PostSummary, baseUrl: string): string {
 
   return `<item>
 <title>${escapeXml(post.title)}</title>
-<description>${escapeXml(post.description)}</description>
 <link>${escapeXml(postUrl)}</link>
 <guid>${escapeXml(postUrl)}</guid>
 <pubDate>${formatRssDate(post.date)}</pubDate>

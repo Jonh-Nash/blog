@@ -1,7 +1,6 @@
 ---
 title: 一週間の振り返り：2026/07/13~07/17
 date: 2026-07-18
-description: 仕事7周目の良かった点、反省点、次にやることの振り返り
 slug: review-1week-20260718
 tags:
   - review

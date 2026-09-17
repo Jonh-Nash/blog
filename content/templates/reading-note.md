@@ -1,7 +1,6 @@
 ---
 title: 「元記事のタイトル」を読んで
 date: YYYY-MM-DD
-description: この記事を読んで考えたことを一文で
 slug: reading-note-slug
 tags:
   - reading-note

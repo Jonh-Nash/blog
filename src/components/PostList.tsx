@@ -36,7 +36,6 @@ export function PostList({ posts, selectedTag }: PostListProps) {
                   </Link>
                 ))}
               </div>
-              <p>{post.description}</p>
             </article>
           ))}
         </div>

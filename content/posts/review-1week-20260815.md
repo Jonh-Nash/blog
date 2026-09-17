@@ -1,7 +1,6 @@
 ---
 title: 一週間の振り返り：2026/08/10~08/14
 date: 2026-08-15
-description: 仕事11周目の良かった点、反省点、次にやることの振り返り
 slug: review-1week-20260815
 tags:
   - review

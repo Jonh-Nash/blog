@@ -21,17 +21,14 @@ vi.mock("../../lib/posts", () => ({
 const makePost = ({
   title,
   date,
-  description,
   slug,
 }: {
   title: string;
   date: string;
-  description: string;
   slug: string;
 }): PostSummary => ({
   title,
   date,
-  description,
   slug,
   tags: ["idea"],
 });
@@ -43,13 +40,11 @@ describe("GET /rss.xml", () => {
       makePost({
         title: "First RSS post",
         date: "2026-05-01",
-        description: "First RSS description",
         slug: "first-rss-post",
       }),
       makePost({
         title: "Latest RSS post",
         date: "2026-05-03",
-        description: "Latest RSS description",
         slug: "latest-rss-post",
       }),
     ]);
@@ -79,7 +74,6 @@ describe("GET /rss.xml", () => {
     );
     expect(body).toContain("https://jonh-nash.github.io/blog/posts/latest-rss-post");
     expect(body).toContain(new Date("2026-05-03").toUTCString());
-    expect(body).toContain("<description>Latest RSS description</description>");
   });
 
   it("given the route module when statically exporting then marks rss.xml as force static", async () => {

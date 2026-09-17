@@ -47,19 +47,17 @@ afterEach(() => {
 });
 
 describe("PostList", () => {
-  it("given post summaries when rendering the list then passes title date description and slug to detail links", () => {
+  it("given post summaries when rendering the list then passes title date and slug to detail links", () => {
     const posts: PostSummary[] = [
       {
         title: "First post",
         date: "2026-05-01",
-        description: "First description",
         slug: "first-post",
         tags: ["idea"],
       },
       {
         title: "Second post",
         date: "2026-05-02",
-        description: "Second description",
         slug: "second-post",
         tags: ["idea"],
       },
@@ -73,7 +71,6 @@ describe("PostList", () => {
     const firstArticle = within(articles[0]);
     expect(firstArticle.getByText("First post")).toBeTruthy();
     expect(firstArticle.getByText("2026-05-01")).toBeTruthy();
-    expect(firstArticle.getByText("First description")).toBeTruthy();
     expect(firstArticle.getByRole("link", { name: "First post" }).getAttribute("href")).toBe(
       "/posts/first-post",
     );
@@ -81,7 +78,6 @@ describe("PostList", () => {
     const secondArticle = within(articles[1]);
     expect(secondArticle.getByText("Second post")).toBeTruthy();
     expect(secondArticle.getByText("2026-05-02")).toBeTruthy();
-    expect(secondArticle.getByText("Second description")).toBeTruthy();
     expect(secondArticle.getByRole("link", { name: "Second post" }).getAttribute("href")).toBe(
       "/posts/second-post",
     );
@@ -92,7 +88,6 @@ describe("PostList", () => {
       {
         title: "Base path post",
         date: "2026-05-03",
-        description: "Base path description",
         slug: "base-path-post",
         tags: ["idea"],
       },
@@ -110,7 +105,6 @@ describe("PostList", () => {
       {
         title: "Tagged post",
         date: "2026-05-04",
-        description: "Tagged description",
         slug: "tagged-post",
         tags: ["idea"],
       },
@@ -128,7 +122,6 @@ describe("PostList", () => {
       {
         title: "Tagged post",
         date: "2026-05-04",
-        description: "Tagged description",
         slug: "tagged-post",
         tags: ["idea"],
       },
@@ -147,14 +140,12 @@ describe("PostList", () => {
       {
         title: "Idea post",
         date: "2026-05-04",
-        description: "Idea description",
         slug: "idea-post",
         tags: ["idea"],
       },
       {
         title: "Memo post",
         date: "2026-05-05",
-        description: "Memo description",
         slug: "memo-post",
         tags: ["memo"],
       },
@@ -174,7 +165,6 @@ describe("PostList", () => {
       {
         title: "Encoded tag post",
         date: "2026-05-05",
-        description: "Encoded tag description",
         slug: "encoded-tag-post",
         tags: ["work notes"],
       },
@@ -192,7 +182,6 @@ describe("PostList", () => {
       {
         title: "Encoded tag post",
         date: "2026-05-05",
-        description: "Encoded tag description",
         slug: "encoded-tag-post",
         tags: ["work notes"],
       },
@@ -211,7 +200,6 @@ describe("PostList", () => {
       {
         title: "Tagged post",
         date: "2026-05-04",
-        description: "Tagged description",
         slug: "tagged-post",
         tags: ["idea"],
       },

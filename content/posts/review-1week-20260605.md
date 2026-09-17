@@ -1,7 +1,6 @@
 ---
 title: 一週間の振り返り：2026/06/01~06
 date: 2026-06-06
-description: 仕事初週の良かった点、反省点、次にやることの振り返り
 slug: review-1week-20260605
 tags:
   - review

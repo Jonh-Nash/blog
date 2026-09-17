@@ -1,7 +1,6 @@
 ---
 title: A増幅器
 date: 2026-05-28
-description: AIが人の能力や行動を増幅する装置だと感じた例
 slug: ai-is-amplifier-example
 tags:
   - idea

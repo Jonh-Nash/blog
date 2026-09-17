@@ -9,17 +9,14 @@ import { siteMetadata } from "./site";
 const makePost = ({
   title,
   date,
-  description,
   slug,
 }: {
   title: string;
   date: string;
-  description: string;
   slug: string;
 }): PostSummary => ({
   title,
   date,
-  description,
   slug,
   tags: ["idea"],
 });
@@ -59,19 +56,16 @@ describe("buildRssFeed", () => {
       makePost({
         title: "Old post",
         date: "2026-05-01",
-        description: "Old description",
         slug: "old-post",
       }),
       makePost({
         title: "New post",
         date: "2026-05-03",
-        description: "New description",
         slug: "new-post",
       }),
       makePost({
         title: "Middle post",
         date: "2026-05-02",
-        description: "Middle description",
         slug: "middle-post",
       }),
     ];
@@ -91,7 +85,6 @@ describe("buildRssFeed", () => {
       makePost({
         title: "RSS post",
         date: "2026-05-04",
-        description: "RSS description",
         slug: "rss-post",
       }),
     ];
@@ -103,7 +96,7 @@ describe("buildRssFeed", () => {
     const expectedUrl = "https://jonh-nash.github.io/blog/posts/rss-post";
 
     expect(item?.querySelector("title")?.textContent).toBe("RSS post");
-    expect(item?.querySelector("description")?.textContent).toBe("RSS description");
+    expect(item?.querySelector("description")).toBeNull();
     expect(item?.querySelector("link")?.textContent).toBe(expectedUrl);
     expect(item?.querySelector("guid")?.textContent).toBe(expectedUrl);
     expect(item?.querySelector("pubDate")?.textContent).toBe(
@@ -116,7 +109,6 @@ describe("buildRssFeed", () => {
       makePost({
         title: "A & B <C> \"D\" 'E'",
         date: "2026-05-05",
-        description: "Use <tag> & \"quotes\" and 'apostrophes'",
         slug: "xml-&-post",
       }),
     ];
@@ -124,7 +116,6 @@ describe("buildRssFeed", () => {
     const xml = buildRssFeed(posts, siteMetadata);
 
     expect(xml).toContain("A &amp; B &lt;C&gt; &quot;D&quot; &apos;E&apos;");
-    expect(xml).toContain("Use &lt;tag&gt; &amp; &quot;quotes&quot; and &apos;apostrophes&apos;");
     expect(xml).toContain("https://jonh-nash.github.io/blog/posts/xml-&amp;-post");
     expect(parseXml(xml).querySelector("item > title")?.textContent).toBe("A & B <C> \"D\" 'E'");
   });
@@ -134,13 +125,11 @@ describe("buildRssFeed", () => {
       makePost({
         title: "Old post",
         date: "2026-05-01",
-        description: "Old description",
         slug: "old-post",
       }),
       makePost({
         title: "New post",
         date: "2026-05-03",
-        description: "New description",
         slug: "new-post",
       }),
     ];
@@ -155,7 +144,6 @@ describe("buildRssFeed", () => {
       makePost({
         title: "Invalid date post",
         date: "not-a-date",
-        description: "Invalid date description",
         slug: "invalid-date-post",
       }),
     ];

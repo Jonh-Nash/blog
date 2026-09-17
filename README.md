@@ -4,7 +4,7 @@
 
 このリポジトリは、Markdown ファイルを記事として公開する Next.js 製の個人ブログです。
 
-`content/posts/*.md` の frontmatter から `title`、`date`、`description`、`slug`、`tags` を読み取り、トップページの記事一覧と `/posts/[slug]` の記事詳細ページを静的に生成します。Markdown 本文は HTML に変換したあと、`sanitize-html` でサニタイズして表示します。
+`content/posts/*.md` の frontmatter から `title`、`date`、`slug`、`tags` を読み取り、トップページの記事一覧と `/posts/[slug]` の記事詳細ページを静的に生成します。Markdown 本文は HTML に変換したあと、`sanitize-html` でサニタイズして表示します。
 
 `next.config.ts` では静的エクスポート用に `output: "export"`、`basePath: "/blog"`、`assetPrefix: "/blog/"`、`trailingSlash: true` が設定されています。`npm run build` の出力先は `out/` です。
 
@@ -70,14 +70,13 @@ npm run build
 ---
 title: Article title
 date: 2026-05-26
-description: Article description
 slug: article-slug
 tags:
   - idea
 ---
 ```
 
-`slug` は記事詳細ページの URL に使われます。必須 frontmatter（`title`, `date`, `description`, `slug`, `tags`）が欠けている場合や `slug` が重複している場合、記事読み取り処理はエラーを投げます。
+`slug` は記事詳細ページの URL に使われます。必須 frontmatter（`title`, `date`, `slug`, `tags`）が欠けている場合や `slug` が重複している場合、記事読み取り処理はエラーを投げます。
 
 ## 読んだ記事についてメモする
 

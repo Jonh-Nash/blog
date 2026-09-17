@@ -1,7 +1,6 @@
 ---
 title: TAKT
 date: 2026-05-26
-description: TAKTを使って感じた良さとワークフロー改善へのメモ
 slug: takt-is-good-for-me
 tags:
   - idea

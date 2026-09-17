@@ -8,7 +8,6 @@ import sanitizeHtml from "sanitize-html";
 export type PostSummary = {
   title: string;
   date: string;
-  description: string;
   slug: string;
   tags: string[];
 };
@@ -32,14 +31,13 @@ type ParsedPost = PostSummary & {
 };
 
 const postsDirectory = path.join(process.cwd(), "content", "posts");
-const requiredFields = ["title", "date", "description", "slug"] as const;
+const requiredFields = ["title", "date", "slug"] as const;
 
 export function getAllPosts(): PostSummary[] {
   return readPosts()
-    .map(({ title, date, description, slug, tags }) => ({
+    .map(({ title, date, slug, tags }) => ({
       title,
       date,
-      description,
       slug,
       tags,
     }))
@@ -64,7 +62,6 @@ export function getPostBySlug(slug: string): Post {
   return {
     title: post.title,
     date: post.date,
-    description: post.description,
     slug: post.slug,
     tags: post.tags,
     source: post.source,
@@ -112,7 +109,6 @@ function validateFrontmatter(
   return {
     title: data.title as string,
     date: formatDateField(data.date),
-    description: data.description as string,
     slug: data.slug as string,
     tags: validateTagsField(data.tags, fileName),
     ...validateSourceField(data.source, fileName),

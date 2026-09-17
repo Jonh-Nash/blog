@@ -1,7 +1,6 @@
 ---
 title: ミスは1つに留めなければならない
 date: 2026-06-13
-description: about-miss
 slug: about-miss
 tags:
   - thought

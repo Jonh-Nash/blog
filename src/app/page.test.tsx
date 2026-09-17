@@ -59,7 +59,6 @@ const makePost = ({
 }): PostSummary => ({
   title,
   date: "2026-05-01",
-  description: `${title} description`,
   slug,
   tags,
 });

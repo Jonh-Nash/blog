@@ -1,7 +1,6 @@
 ---
 title: 「『AIを全員に配った組織』の生産性が落ちるとき」を読んで
 date: 2026-09-17
-description: AIでコードを書く速度が上がるなかで、レビューの自動化だけでなく、優先順位づけや検証の証跡を組み合わせることについて
 slug: reading-ai-organization-flow
 tags:
   - reading-note

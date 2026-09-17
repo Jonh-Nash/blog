@@ -19,7 +19,6 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 
   return {
     title: post.title,
-    description: post.description,
   };
 }
 
@@ -37,7 +36,6 @@ export default async function PostPage({ params }: PostPageProps) {
           <p className="eyebrow">Post</p>
           <h1>{post.title}</h1>
           <time dateTime={post.date}>{post.date}</time>
-          <p>{post.description}</p>
         </header>
         {post.source ? (
           <aside className="post-source" aria-label="この記事の参照元">

@@ -27,7 +27,6 @@ vi.mock("next/link", () => ({
 const post: Post = {
   title: "An article response",
   date: "2026-09-07",
-  description: "What stayed with me",
   slug: "article-response",
   tags: ["reading-note"],
   source: {
